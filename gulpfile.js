@@ -128,7 +128,13 @@ const buildImages = cb => {
   cb();
 };
 
+const buildVideo = cb => {
+  src(`${path.source}/video/**/*`)
+    .pipe(dest(`${path.project}/video`));
+  cb();
+};
+
 // Export tasks
 exports.start = series(parallel(pugToHTML, sassToCSS, script), server);
 exports.build = series(parallel(pugToHTML, sassToCSS, script), deleteFolder,
-  parallel(buildHTML, buildCSS, buildJS, buildPHP, buildFonts, buildImages));
+  parallel(buildHTML, buildCSS, buildJS, buildPHP, buildFonts, buildImages, buildVideo));
