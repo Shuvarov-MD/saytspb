@@ -1,0 +1,72 @@
+.header {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 68%;
+
+    @media screen and (max-width: 992px) {
+      width: 75%;
+    }
+
+    @media screen and (max-width: 768px) {
+      position: fixed;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      width: 50%;
+      background-color: $color-action;
+      top: 0;
+      right: 0;
+      padding-top: 3.75rem;
+      transform: translateX(100%);
+      color: $color-light;
+      opacity: 0;
+      transition: all 0.3s linear;
+
+      &.active {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__phone {
+    color: inherit;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s linear;
+
+    @media screen and (min-width: 992px) {
+      &:hover {
+        color: $color-action;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-bottom: 1.333em;
+    }
+  }
+
+  &__button {
+    padding: 0.625rem 1.937rem;
+
+    @media screen and (max-width: 768px) {
+      border-color: $color-light;
+      background-color: $color-light;
+      color: $color-action;
+    }
+  }
+}
