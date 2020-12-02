@@ -2,3 +2,194 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+// Styles for html
+html {
+  height: 100%;
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 992px) {
+    font-size: 12px;
+  }
+}
+
+// Styles for body
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: $font;
+  color: $color-dark;
+}
+
+// Styles for .wrapper
+.wrapper {
+  flex: 1 0 auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+// Styles for .logo
+.logo {
+  text-decoration: none;
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__text {
+    color: $color-dark;
+    font-size: 1.625rem;
+    font-weight: 700;
+    letter-spacing: 0.064rem;
+    text-transform: uppercase;
+
+    &--right {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+// Styles for .img
+.img {
+  width: 100%;
+}
+
+// Styles for .nav
+.nav {
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: inherit;
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 992px) {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5em;
+        display: block;
+        width: 0;
+        height: 0.125rem;
+        background-color: $color-action;
+        margin-top: 0.375rem;
+        opacity: 0;
+        transition: all 0.3s linear;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+          width: 67%;
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+      padding-bottom: 1em;
+    }
+  }
+}
+
+// Styles for .button
+.button {
+  color: $color-light;
+  font-weight: 500;
+  border-radius: 1.375rem;
+  border: 0.125rem solid $color-action;
+  background-color: $color-action;
+  cursor: pointer;
+  transition: all 0.3s linear;
+
+  @media screen and (min-width: 992px) {
+    &:hover {
+      color: $color-action;
+      background-color: transparent;
+    }
+  }
+}
+
+// Styles for .burger-menu
+.burger-menu {
+  position: relative;
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  &__span {
+    position: absolute;
+    height: 0.5rem;
+    width: 100%;
+    background-color: $color-dark;
+    border-radius: 0.25rem;
+    transition: all 0.3s linear;
+    
+    &:first-of-type {
+      transform-origin: left top;
+      top: 0;
+    }
+
+    &:nth-of-type(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:last-of-type {
+      transform-origin: left bottom;
+      bottom: 0;
+    }
+
+    &.active {
+      background-color: $color-light;
+
+      &:first-of-type {
+        transform: rotate(45deg);
+        width: 3rem;
+      }
+
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+
+      &:last-of-type {
+        transform: rotate(-45deg);
+        width: 3rem;
+      }
+    }
+  }
+}
