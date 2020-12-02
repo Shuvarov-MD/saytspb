@@ -128,6 +128,7 @@ const buildImages = cb => {
   cb();
 };
 
+// Moving video
 const buildVideo = cb => {
   src(`${path.source}/video/**/*`)
     .pipe(dest(`${path.project}/video`));
