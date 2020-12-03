@@ -198,3 +198,14 @@ body {
     }
   }
 }
+
+// Styles for .form
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+// Styles for .input
+.input {
+  outline: none;
+}
