@@ -1,0 +1,16 @@
+.popup
+  .popup__wrapper
+    .popup__content.popup__content--callback
+      form(action="#", class="form popup__form")
+        input(type="text", name="popup-form--name", placeholder="Ваше имя", class="input popup__input")
+        input(type="tel", name="popup-form--tel", placeholder="Ваш номер телефона", class="input popup__input")
+        button(type="submit", class="button popup__button") Отправить
+      .popup__close
+        svg.icon.popup__icon
+          use(xlink:href="./images/sprites.svg#cancel")
+    .popup__content.popup__content--thanks
+      h2.popup__title Cпасибо за вашу заявку!
+      p.popup__text Наш менеджер свяжется с вами в ближайшее время!
+      .popup__close
+        svg.icon.popup__icon
+          use(xlink:href="./images/sprites.svg#cancel")
