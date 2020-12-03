@@ -53,6 +53,10 @@ body {
     &--right {
       margin-left: 0.5em;
     }
+
+    &--bottom {
+      margin-top: 0.576em;
+    }
   }
 }
 
@@ -130,6 +134,7 @@ body {
   border: 0.125rem solid $color-action;
   background-color: $color-action;
   cursor: pointer;
+  outline: none;
   transition: all 0.3s linear;
 
   @media screen and (min-width: 992px) {
